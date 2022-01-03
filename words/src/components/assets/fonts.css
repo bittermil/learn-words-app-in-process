@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "BarkingCat";
+  src: url("./fonts/BarkingCat.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter.ttf") format("truetype");
+}
+
+:root {
+  --BarkingCat: "BarkingCat";
+  --Inter: "Inter";
+}

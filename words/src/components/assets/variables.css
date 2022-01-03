@@ -1,0 +1,6 @@
+:root {
+  --bg_dark: rgb(28, 55, 61);
+  --white_color: rgb(255, 255, 255);
+  --shadow: rgba(128, 128, 128, 0.79) 0 0 8px;
+  --headers_dark_color: #2e2d44;
+}

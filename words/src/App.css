@@ -1,0 +1,47 @@
+@import "./components/assets/fonts.css";
+@import "./components/assets/variables.css";
+
+h2 {
+  text-align: center;
+}
+
+.header {
+  box-sizing: border-box;
+  height: 80px;
+  padding: 10px 50px;
+  background: var(--bg_dark);
+  font-family: var(--BarkingCat);
+  font-size: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  min-height: 100vh;
+  font-family: var(--Inter);
+}
+
+.logo {
+  background: url("./components/assets/images/book.png");
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+}
+
+.projectName {
+  align-self: center;
+  color: var(--white_color);
+  font-weight: 800;
+}
+
+.footer {
+  box-sizing: border-box;
+  background: var(--bg_dark);
+  height: 40px;
+  padding: 10px 50px;
+  font-family: var(--Inter);
+  font-size: 20px;
+  color: var(--white_color);
+  font-weight: 800;
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+@import "./variables.css";
+
+h1 {
+  margin: 45px 0 15px;
+  font-size: 36px;
+  text-align: center;
+  color: var(--headers_dark_color);
+}
+
+.table {
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  border-spacing: 0;
+  background: #a4b9dc;
+  padding: 10px;
+  margin: 10px auto 30px;
+}
+
+.table tr {
+  height: 40px;
+  font-size: 20px;
+}
+
+.table th {
+  font-size: 26px;
+  color: var(--headers_dark_color);
+}
+
+.table th,
+.table td {
+  padding: 5px 15px;
+  border-right: 2px solid #8598b4;
+}
+
+.table th:last-child,
+.table td:last-child {
+  border-right: none;
+}
