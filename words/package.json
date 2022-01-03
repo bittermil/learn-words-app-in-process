@@ -1,6 +1,6 @@
 {
-  "homepage": "https://bittermil.github.io/pricing_plans/",
-  "name": "words",
+  "homepage": "https://bittermil.github.io/word-app/",
+  "name": "words-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
