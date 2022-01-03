@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/pricing_plans/static/css/main.e09c7644.css",
+    "main.js": "/pricing_plans/static/js/main.50c167f2.js",
+    "static/js/787.0a22676f.chunk.js": "/pricing_plans/static/js/787.0a22676f.chunk.js",
+    "static/media/Inter.ttf": "/pricing_plans/static/media/Inter.b4c30855aff392d7e8dc.ttf",
+    "static/media/BarkingCat.otf": "/pricing_plans/static/media/BarkingCat.5b9d500fa6d9e624ebbd.otf",
+    "static/media/book.png": "/pricing_plans/static/media/book.baee980c93e025c5dd6d.png",
+    "static/media/tick.png": "/pricing_plans/static/media/tick.d90c940c411369f8a29d.png",
+    "index.html": "/pricing_plans/index.html",
+    "main.e09c7644.css.map": "/pricing_plans/static/css/main.e09c7644.css.map",
+    "main.50c167f2.js.map": "/pricing_plans/static/js/main.50c167f2.js.map",
+    "787.0a22676f.chunk.js.map": "/pricing_plans/static/js/787.0a22676f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e09c7644.css",
+    "static/js/main.50c167f2.js"
+  ]
+}
