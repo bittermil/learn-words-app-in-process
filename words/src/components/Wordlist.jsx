@@ -8,17 +8,20 @@ function Wordlist() {
     <React.Fragment>
       <h1>Your words</h1>
       <table className={styles.table}>
-        <tr className={styles.tableRow}>
-          <th>Russian</th>
-          <th>English</th>
-          <th>Transcription</th>
-          <th></th>
-        </tr>
-
-        <Word edit></Word>
-        {wordsData.map((word) => (
-          <Word {...word}></Word>
-        ))}
+        <thead>
+          <tr className={styles.tableRow}>
+            <th>Russian</th>
+            <th>English</th>
+            <th>Transcription</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <Word edit></Word>
+          {wordsData.map((word) => (
+            <Word {...word}></Word>
+          ))}
+        </tbody>
       </table>
     </React.Fragment>
   );
