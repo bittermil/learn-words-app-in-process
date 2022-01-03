@@ -5,7 +5,7 @@ import { wordsData } from "./words";
 
 function Wordlist() {
   return (
-    <React.Fragment>
+    <>
       <h1>Your words</h1>
       <table className={styles.table}>
         <thead>
@@ -19,11 +19,11 @@ function Wordlist() {
         <tbody>
           <Word edit></Word>
           {wordsData.map((word) => (
-            <Word {...word}></Word>
+            <Word key={word.id} {...word}></Word>
           ))}
         </tbody>
       </table>
-    </React.Fragment>
+    </>
   );
 }
 

@@ -1,6 +1,10 @@
 @import "./variables.css";
 
-.card {
+.cardContainer {
+  perspective: 700px;
+}
+
+.cardFlip {
   box-shadow: var(--shadow);
   border-radius: 8px;
   border-spacing: 0;
@@ -11,6 +15,8 @@
   text-align: center;
   font-weight: 800;
   font-size: 30px;
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
 }
 
 .card:hover {
@@ -24,4 +30,12 @@
 .russian {
   margin-top: 5px;
   font-weight: 400;
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+
+.front {
+  transform: rotateY(180deg);
 }
