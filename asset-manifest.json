@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/word-app/static/css/main.25606d05.css",
-    "main.js": "/word-app/static/js/main.1ac28c2a.js",
+    "main.css": "/word-app/static/css/main.2568a0f9.css",
+    "main.js": "/word-app/static/js/main.ee944cdc.js",
     "static/js/787.9d6a683f.chunk.js": "/word-app/static/js/787.9d6a683f.chunk.js",
     "static/media/Inter.ttf": "/word-app/static/media/Inter.b4c30855aff392d7e8dc.ttf",
     "static/media/BarkingCat.otf": "/word-app/static/media/BarkingCat.5b9d500fa6d9e624ebbd.otf",
     "static/media/book.png": "/word-app/static/media/book.baee980c93e025c5dd6d.png",
     "static/media/tick.png": "/word-app/static/media/tick.d90c940c411369f8a29d.png",
     "index.html": "/word-app/index.html",
-    "main.25606d05.css.map": "/word-app/static/css/main.25606d05.css.map",
-    "main.1ac28c2a.js.map": "/word-app/static/js/main.1ac28c2a.js.map",
+    "main.2568a0f9.css.map": "/word-app/static/css/main.2568a0f9.css.map",
+    "main.ee944cdc.js.map": "/word-app/static/js/main.ee944cdc.js.map",
     "787.9d6a683f.chunk.js.map": "/word-app/static/js/787.9d6a683f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.25606d05.css",
-    "static/js/main.1ac28c2a.js"
+    "static/css/main.2568a0f9.css",
+    "static/js/main.ee944cdc.js"
   ]
 }
