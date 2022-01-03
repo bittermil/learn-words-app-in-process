@@ -2,14 +2,13 @@ import './App.css'
 import React from 'react'
 import WordList from './components/Wordlist';
 import Wordcard from './components/Wordcard';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className={App}>
-        <header className='header'>
-          <div className='projectName'>Word Quiz App</div>
-          <image className='logo'></image>
-        </header>
+        <Header></Header>
         <main className='main'>
           <WordList></WordList>
 
@@ -19,7 +18,7 @@ function App() {
           <h2>Карточка сзади</h2>
           <Wordcard english={"plum"} russian={"слива"} transcription={"[plʌm]"}></Wordcard>
         </main>
-        <footer className='footer'>© 2021</footer>
+        <Footer></Footer>
     </div>
   );
 }

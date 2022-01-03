@@ -1,0 +1,47 @@
+@import "./fonts.css";
+@import "./variables.css";
+
+.header {
+  box-sizing: border-box;
+  height: 80px;
+  padding: 10px 50px;
+  background: var(--bg_dark);
+  font-family: var(--BarkingCat);
+  font-size: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation {
+  width: 60%;
+}
+
+.navigation ul {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navigation ul a {
+  text-decoration: none;
+  color: #99ffab;
+}
+
+.navigation ul a:hover {
+  text-shadow: var(--shadow);
+}
+
+.logo {
+  background: url("./images/book.png");
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+}
+
+.projectName {
+  align-self: center;
+  color: var(--white_color);
+  font-weight: 800;
+}
