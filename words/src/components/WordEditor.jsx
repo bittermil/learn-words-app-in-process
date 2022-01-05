@@ -1,5 +1,4 @@
 import React from "react";
-import WordEditorButtons from "./WordEditorButtons";
 import styles from "./assets/WordEditor.module.css";
 
 function WordEditor() {
@@ -14,7 +13,6 @@ function WordEditor() {
       <td>
         <input className={styles.input} placeholder="Add transcription"></input>
       </td>
-      <WordEditorButtons save></WordEditorButtons>
     </tr>
   );
 }

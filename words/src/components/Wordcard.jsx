@@ -5,30 +5,32 @@ import styles from "./assets/Wordcard.module.css";
 let cx = classNames.bind(styles);
 
 function Card(props) {
-  const [isBack, setSide] = useState("false");
+  const [flipped, setSide] = useState("false");
 
-  const changeSide = () => {
-    setSide(!isBack);
+  const toggleClass = () => {
+    setSide(!flipped);
   };
 
   let cardStyle = cx("card", {
-    front: !isBack,
-    back: isBack,
+    flipped: flipped,
   });
 
   return (
-    <div className={styles.cardContainer}>
-      <div className={styles.cardFlip}>
-        <div className={cardStyle} onClick={changeSide}>
-          <div className={styles.english}>{props.english}</div>
-          {isBack ? (
+    <>
+      <div className={styles.container}>
+        <div className={cardStyle} onClick={toggleClass}>
+          <div className={styles.front}>
+            <div className={styles.english}>{props.english}</div>
             <div className={styles.transcription}>{props.transcription}</div>
-          ) : (
+          </div>
+          <div className={styles.back}>
+            <div className={styles.english}>{props.english}</div>
             <div className={styles.russian}>{props.russian}</div>
-          )}
+          </div>
         </div>
       </div>
-    </div>
+      ;
+    </>
   );
 }
 
