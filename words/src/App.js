@@ -8,14 +8,14 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-        <Header></Header>
+        <Header/>
         <main className="main">
-          <WordList></WordList>
+          <WordList/>
 
           <h2>Карточка</h2>
           <Wordcard english={"plum"} russian={"слива"} transcription={"[plʌm]"} front></Wordcard>
         </main>
-        <Footer></Footer>
+        <Footer/>
     </div>
   );
 }
