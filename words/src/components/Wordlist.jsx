@@ -17,7 +17,6 @@ function Wordlist() {
           </tr>
         </thead>
         <tbody>
-          <Word edit></Word>
           {wordsData.map((word) => (
             <Word key={word.id} {...word}></Word>
           ))}

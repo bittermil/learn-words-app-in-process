@@ -2,25 +2,74 @@ import React, { useState } from "react";
 import styles from "./assets/Word.module.css";
 
 function Word(props) {
-  const [isEdit, editWord] = useState("false");
+  const defValues = {
+    russian: props.russian,
+    english: props.english,
+    transcription: props.transcription,
+  };
+
+  const [isEdit, editWord] = useState(false);
+  const [values, setValues] = useState(defValues);
 
   const setEdit = () => {
     editWord(!isEdit);
   };
 
+  const changeValues = (e) => {
+    const { name, value } = e.target;
+    setValues((previousState) => {
+      return {
+        ...previousState,
+        [name]: value,
+      };
+    });
+  };
+
   return (
     <>
-      <tr className={styles.tableRow}>
-        {}
-        <td>{props.russian}</td>
-        <td>{props.english}</td>
-        <td>{props.transcription}</td>
-        <td className={styles.editor}>
-          {props.onEdit && <div className={styles.save}></div>}
-          <div className={styles.edit}></div>
-          <div className={styles.delete}></div>
-        </td>
-      </tr>
+      {(isEdit && (
+        <tr className={styles.tableRow}>
+          <td>
+            <input
+              name="russian"
+              defaultValue={values.russian}
+              className={styles.input}
+              onChange={changeValues}
+            ></input>
+          </td>
+          <td>
+            <input
+              name="english"
+              defaultValue={values.english}
+              className={styles.input}
+              onChange={changeValues}
+            ></input>
+          </td>
+          <td>
+            <input
+              name="transcription"
+              defaultValue={values.transcription}
+              className={styles.input}
+              onChange={changeValues}
+            ></input>
+          </td>
+
+          <td className={styles.editor}>
+            <div onClick={setEdit} className={styles.save}></div>
+            <div onClick={setEdit} className={styles.cancel}></div>
+          </td>
+        </tr>
+      )) || (
+        <tr className={styles.tableRow}>
+          <td>{props.russian}</td>
+          <td>{props.english}</td>
+          <td>{props.transcription}</td>
+          <td className={styles.editor}>
+            <div onClick={setEdit} className={styles.edit}></div>
+            <div className={styles.delete}></div>
+          </td>
+        </tr>
+      )}
     </>
   );
 }

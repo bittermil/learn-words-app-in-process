@@ -28,11 +28,16 @@ h1 {
 
 .table th,
 .table td {
+  box-sizing: border-box;
+  width: calc(130px + 15px + 15px + 2px + 2px);
   padding: 5px 15px;
   border-right: 2px solid #8598b4;
+  line-height: 20px;
 }
 
 .table th:last-child,
 .table td:last-child {
+  width: auto;
+  padding: 12px 15px;
   border-right: none;
 }
