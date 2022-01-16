@@ -18,18 +18,22 @@ function WordcardSlider() {
 
   return (
     <>
-      <div className={styles.gallery}>
-        <div onClick={prevSlide} className={styles.arrowLeft}></div>
-        <div className={styles.slider}>
-          {wordsData.map((word, i) => (
-            <Card index={index} order={i} key={word.id} {...word}></Card>
-          ))}
-        </div>
-        <div onClick={nextSlide} className={styles.arrowRight}></div>
-      </div>
-      <div className={styles.slideCount}>
-        {index + 1} / {wordsData.length}
-      </div>
+      {(wordsData.length && (
+        <>
+          <div className={styles.gallery}>
+            <div onClick={prevSlide} className={styles.arrowLeft}></div>
+            <div className={styles.slider}>
+              {wordsData.map((word, i) => (
+                <Card index={index} order={i} key={word.id} {...word}></Card>
+              ))}
+            </div>
+            <div onClick={nextSlide} className={styles.arrowRight}></div>
+          </div>
+          <div className={styles.slideCount}>
+            {index + 1} / {wordsData.length}
+          </div>
+        </>
+      )) || <div>Looks like we found have no words yet!</div>}
     </>
   );
 }
