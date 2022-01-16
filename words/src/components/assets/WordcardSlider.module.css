@@ -1,0 +1,43 @@
+.gallery {
+  position: relative;
+}
+
+.arrowRight {
+  cursor: pointer;
+  background: url("./images/gray-arrow.png") center no-repeat;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 50px;
+  top: 30%;
+  z-index: 1000;
+}
+
+.arrowLeft {
+  cursor: pointer;
+  background: url("./images/gray-arrow.png") center no-repeat;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: scale(-1, 1);
+  left: 50px;
+  top: 30%;
+  z-index: 1000;
+}
+
+.arrowRight:hover,
+.arrowLeft:hover {
+  box-shadow: #81528f 0 0 8px;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slideCount {
+  text-align: center;
+  margin: 0 auto 20px;
+}

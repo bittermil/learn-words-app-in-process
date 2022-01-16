@@ -50,7 +50,7 @@ export const wordsData = [
     {
       id: "10872",
       english: "unicorn",
-      transcription: "",
+      transcription: "[ˈyo͞onəˌkôrn]",
       russian: "единорог",
       tags: "Array",
       tags_json: "null",
@@ -65,10 +65,10 @@ export const wordsData = [
     },
     {
       id: "10879",
-      english: "butterfly",
-      transcription: "[ˈyo͞onəˌkôrn]",
-      russian: "бабочка",
-      tags: "сказка",
+      english: "penguin",
+      transcription: "[ˈpeŋɡwɪn]",
+      russian: "пингвин",
+      tags: "животные",
       tags_json: '["u0441u043au0430u0437u043au0430"]',
     },
   ];

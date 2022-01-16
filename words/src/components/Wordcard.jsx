@@ -6,6 +6,7 @@ let cx = classNames.bind(styles);
 
 function Card(props) {
   const [flipped, setSide] = useState("false");
+  console.log(props);
 
   const toggleClass = () => {
     setSide(!flipped);
@@ -15,22 +16,23 @@ function Card(props) {
     flipped: flipped,
   });
 
+  let isCardDisplay = cx("container", {
+    active: props.order === props.index,
+  });
+
   return (
-    <>
-      <div className={styles.container}>
-        <div className={cardStyle} onClick={toggleClass}>
-          <div className={styles.front}>
-            <div className={styles.english}>{props.english}</div>
-            <div className={styles.transcription}>{props.transcription}</div>
-          </div>
-          <div className={styles.back}>
-            <div className={styles.english}>{props.english}</div>
-            <div className={styles.russian}>{props.russian}</div>
-          </div>
+    <div className={isCardDisplay}>
+      <div className={cardStyle} onClick={toggleClass}>
+        <div className={styles.front}>
+          <div className={styles.english}>{props.english}</div>
+          <div className={styles.transcription}>{props.transcription}</div>
+        </div>
+        <div className={styles.back}>
+          <div className={styles.english}>{props.english}</div>
+          <div className={styles.russian}>{props.russian}</div>
         </div>
       </div>
-      ;
-    </>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
 import WordList from './components/Wordlist';
-import Wordcard from './components/Wordcard';
+import WordcardSlider from './components/WordcardSlider';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -13,7 +13,7 @@ function App() {
           <WordList/>
 
           <h2>Карточка</h2>
-          <Wordcard english={"plum"} russian={"слива"} transcription={"[plʌm]"} front></Wordcard>
+          <WordcardSlider></WordcardSlider>
         </main>
         <Footer/>
     </div>
