@@ -32,7 +32,7 @@ function Word(props) {
           <td>
             <input
               name="russian"
-              defaultValue={values.russian}
+              value={values.russian}
               className={styles.input}
               onChange={changeValues}
             ></input>
@@ -40,7 +40,7 @@ function Word(props) {
           <td>
             <input
               name="english"
-              defaultValue={values.english}
+              value={values.english}
               className={styles.input}
               onChange={changeValues}
             ></input>
@@ -48,7 +48,7 @@ function Word(props) {
           <td>
             <input
               name="transcription"
-              defaultValue={values.transcription}
+              value={values.transcription}
               className={styles.input}
               onChange={changeValues}
             ></input>
@@ -61,9 +61,9 @@ function Word(props) {
         </tr>
       )) || (
         <tr className={styles.tableRow}>
-          <td>{props.russian}</td>
-          <td>{props.english}</td>
-          <td>{props.transcription}</td>
+          <td>{values.russian}</td>
+          <td>{values.english}</td>
+          <td>{values.transcription}</td>
           <td className={styles.editor}>
             <div onClick={setEdit} className={styles.edit}></div>
             <div className={styles.delete}></div>
