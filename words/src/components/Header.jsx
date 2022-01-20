@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./assets/Header.module.css";
 
 function Header() {
@@ -8,17 +9,19 @@ function Header() {
       <nav className={styles.navigation}>
         <ul>
           <li>
-            <a href="#">My words</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Learning</a>
+            <Link to="/words">My words</Link>
           </li>
           <li>
-            <a href="#">Profile</a>
+            <Link to="/practice">Practice</Link>
           </li>
         </ul>
       </nav>
-      <img className={styles.logo}></img>
+      <Link to="/">
+        <img className={styles.logo}></img>
+      </Link>
     </header>
   );
 }

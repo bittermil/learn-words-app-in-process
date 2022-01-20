@@ -1,23 +1,31 @@
 import './App.css'
 import React from 'react'
-import WordList from './components/Wordlist';
-import WordcardSlider from './components/WordcardSlider';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Home from "./components/Home";
+import Wordlist from "./components/Wordlist";
+import WordcardSlider from "./components/WordcardSlider";
+import NoMatch from "./components/NoMatch";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
         <Header/>
-        <main className="main">
-          <WordList/>
-
-          <h2>Карточка</h2>
-          <WordcardSlider></WordcardSlider>
-        </main>
+          <Routes>
+            <Route path="/words" element={<Wordlist />} />
+            <Route path="/practice" element={<WordcardSlider />} />
+            <Route path="/" element={<Home />}>
+            <Route path="*" element={<NoMatch />} />
+            </Route>
+          </Routes>
         <Footer/>
-    </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+

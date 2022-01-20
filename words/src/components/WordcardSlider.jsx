@@ -33,7 +33,7 @@ function WordcardSlider() {
             {index + 1} / {wordsData.length}
           </div>
         </>
-      )) || <div>Looks like we found have no words yet!</div>}
+      )) || <div>Looks like we found no words yet!</div>}
     </>
   );
 }
