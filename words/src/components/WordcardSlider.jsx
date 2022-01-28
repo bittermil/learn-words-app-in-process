@@ -6,10 +6,16 @@ import { wordsData } from "./words";
 function WordcardSlider() {
   const [index, setIndex] = useState(0);
   const [learnedCount, setCount] = useState(0);
+  const [learned, setState] = useState(new Set());
 
   // изменить число выученных слов
   const updateCount = () => {
-    setCount(learnedCount + 1);
+    if (learned.has(index) === false) setCount(learnedCount + 1);
+  };
+
+  // добавить index слова в set выученных
+  const updateLearned = () => {
+    setState(new Set([...learned, index]));
   };
 
   const nextSlide = () => {
@@ -34,7 +40,9 @@ function WordcardSlider() {
             <div className={styles.slider}>
               {wordsData.map((word, i) => (
                 <Card
+                  learned={learned}
                   callbackFromParent={updateCount}
+                  callbackFromParentTwo={updateLearned}
                   index={index}
                   order={i}
                   key={word.id}

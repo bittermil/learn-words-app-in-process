@@ -9,7 +9,8 @@ const Card = (props) => {
 
   const toggleClass = () => {
     setSide(!flipped);
-    flipped && props.callbackFromParent();
+    !flipped && props.callbackFromParent();
+    props.callbackFromParentTwo();
   };
 
   let cardStyle = cx("card", {
