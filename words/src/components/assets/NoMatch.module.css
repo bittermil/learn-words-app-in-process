@@ -1,0 +1,16 @@
+.text {
+  font-family: var(--BarkingCat);
+  color: #00285c;
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 35px;
+  text-align: center;
+}
+
+.image {
+  background: url(images/dolphin-404.png) center no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+  margin: 90px auto 10px;
+}

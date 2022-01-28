@@ -13,13 +13,14 @@ function App() {
     <Router>
       <div className="App">
         <Header/>
-          <Routes>
-            <Route path="/words" element={<Wordlist />} />
-            <Route path="/practice" element={<WordcardSlider />} />
-            <Route path="/" element={<Home />}>
-            <Route path="*" element={<NoMatch />} />
-            </Route>
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route path="/words" element={<Wordlist />} />
+              <Route path="/practice" element={<WordcardSlider />} />
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NoMatch />} />
+            </Routes>
+          </div>
         <Footer/>
       </div>
     </Router>

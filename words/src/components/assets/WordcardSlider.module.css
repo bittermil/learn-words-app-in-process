@@ -9,8 +9,8 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 50px;
-  top: 30%;
+  right: -30px;
+  top: 40%;
   z-index: 1000;
 }
 
@@ -22,8 +22,8 @@
   height: 30px;
   position: absolute;
   transform: scale(-1, 1);
-  left: 50px;
-  top: 30%;
+  left: -30px;
+  top: 40%;
   z-index: 1000;
 }
 
@@ -40,4 +40,21 @@
 .slideCount {
   text-align: center;
   margin: 0 auto 20px;
+}
+
+.learnedCount {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--bg_dark);
+}
+
+.learnedCount span {
+  color: rgb(75 34 192);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
 }

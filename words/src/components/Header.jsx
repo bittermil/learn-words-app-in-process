@@ -5,7 +5,9 @@ import styles from "./assets/Header.module.css";
 function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.projectName}>Word Quiz App</div>
+      <Link to="/">
+        <div className={styles.projectName}>Word Quiz App</div>
+      </Link>
       <nav className={styles.navigation}>
         <ul>
           <li>
@@ -20,7 +22,7 @@ function Header() {
         </ul>
       </nav>
       <Link to="/">
-        <img className={styles.logo}></img>
+        <div className={styles.logo}></div>
       </Link>
     </header>
   );

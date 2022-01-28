@@ -2,14 +2,18 @@
 @import "./variables.css";
 
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   box-sizing: border-box;
-  height: 80px;
+  height: 70px;
   padding: 10px 50px;
   background: var(--bg_dark);
   font-family: var(--BarkingCat);
   font-size: 35px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navigation {
@@ -34,13 +38,14 @@
 }
 
 .logo {
-  background: url("./images/book.png");
+  background: url("./images/book.png") no-repeat;
   background-size: contain;
   width: 60px;
   height: 60px;
 }
 
 .projectName {
+  display: inline-block;
   align-self: center;
   color: var(--white_color);
   font-weight: 800;

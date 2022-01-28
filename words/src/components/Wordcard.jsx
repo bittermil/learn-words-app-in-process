@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import styles from "./assets/Wordcard.module.css";
 
 let cx = classNames.bind(styles);
 
-function Card(props) {
-  const [flipped, setSide] = useState("false");
-  console.log(props);
+const Card = (props) => {
+  const [flipped, setSide] = useState(false);
 
   const toggleClass = () => {
     setSide(!flipped);
+    flipped && props.callbackFromParent();
   };
 
   let cardStyle = cx("card", {
@@ -34,6 +34,6 @@ function Card(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
