@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Card from "./Wordcard";
 import styles from "./assets/WordcardSlider.module.css";
 import { wordsData } from "./words";
@@ -7,6 +7,13 @@ function WordcardSlider() {
   const [index, setIndex] = useState(0);
   const [learnedCount, setCount] = useState(0);
   const [learned, setState] = useState(new Set());
+
+  const buttonEl = useRef(null);
+
+  const onButtonClick = () => {
+    buttonEl.current.focus();
+    console.log(1);
+  };
 
   // изменить число выученных слов
   const updateCount = () => {
@@ -36,13 +43,13 @@ function WordcardSlider() {
             Swipe cards to practice, click a card to see a translation
           </div>
           <div className={styles.gallery}>
-            <div onClick={prevSlide} className={styles.arrowLeft}></div>
+            <button onClick={prevSlide} className={styles.arrowLeft}></button>
             <div className={styles.slider}>
               {wordsData.map((word, i) => (
                 <Card
-                  learned={learned}
-                  callbackFromParent={updateCount}
-                  callbackFromParentTwo={updateLearned}
+                  callbackFromParentCountUpdate={updateCount}
+                  callbackFromParentLearnedUpdate={updateLearned}
+                  callbackFromParentButtonRef={onButtonClick}
                   index={index}
                   order={i}
                   key={word.id}
@@ -50,14 +57,18 @@ function WordcardSlider() {
                 ></Card>
               ))}
             </div>
-            <div onClick={nextSlide} className={styles.arrowRight}></div>
+            <button
+              ref={buttonEl}
+              onClick={nextSlide}
+              className={styles.arrowRight}
+            ></button>
           </div>
           <div className={styles.slideCount}>
             {index + 1} / {wordsData.length}
           </div>
 
           <div className={styles.learnedCount}>
-            Today you've already learned <span>{learnedCount}</span>. Keep
+            Today you've already learned <span>{learnedCount}</span> words. Keep
             going!
           </div>
         </>

@@ -5,6 +5,7 @@
 .arrowRight {
   cursor: pointer;
   background: url("./images/gray-arrow.png") center no-repeat;
+  border: none;
   border-radius: 100%;
   width: 30px;
   height: 30px;
@@ -17,6 +18,7 @@
 .arrowLeft {
   cursor: pointer;
   background: url("./images/gray-arrow.png") center no-repeat;
+  border: none;
   border-radius: 100%;
   width: 30px;
   height: 30px;
@@ -28,7 +30,8 @@
 }
 
 .arrowRight:hover,
-.arrowLeft:hover {
+.arrowLeft:hover,
+.arrowRight:focus {
   box-shadow: #81528f 0 0 8px;
 }
 

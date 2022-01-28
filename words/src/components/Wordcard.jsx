@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./assets/Wordcard.module.css";
 
@@ -9,8 +9,8 @@ const Card = (props) => {
 
   const toggleClass = () => {
     setSide(!flipped);
-    !flipped && props.callbackFromParent();
-    props.callbackFromParentTwo();
+    !flipped && props.callbackFromParentCountUpdate();
+    props.callbackFromParentLearnedUpdate();
   };
 
   let cardStyle = cx("card", {
@@ -23,7 +23,13 @@ const Card = (props) => {
 
   return (
     <div className={isCardDisplay}>
-      <div className={cardStyle} onClick={toggleClass}>
+      <div
+        className={cardStyle}
+        onClick={() => {
+          toggleClass();
+          props.callbackFromParentButtonRef();
+        }}
+      >
         <div className={styles.front}>
           <div className={styles.english}>{props.english}</div>
           <div className={styles.transcription}>{props.transcription}</div>
