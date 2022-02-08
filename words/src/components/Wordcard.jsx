@@ -5,16 +5,12 @@ import styles from "./assets/Wordcard.module.css";
 let cx = classNames.bind(styles);
 
 const Card = (props) => {
-  const [flipped, setSide] = useState(false);
-
   const toggleClass = () => {
-    setSide(!flipped);
-    !flipped && props.callbackFromParentCountUpdate();
-    props.callbackFromParentLearnedUpdate();
+    props.callbackOnCardToggle();
   };
 
   let cardStyle = cx("card", {
-    flipped: flipped,
+    flipped: props.flipped,
   });
 
   let isCardDisplay = cx("container", {
@@ -27,7 +23,7 @@ const Card = (props) => {
         className={cardStyle}
         onClick={() => {
           toggleClass();
-          props.callbackFromParentButtonRef();
+          props.callbackOnButtonClick();
         }}
       >
         <div className={styles.front}>

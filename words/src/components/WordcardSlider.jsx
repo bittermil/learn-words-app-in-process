@@ -7,12 +7,12 @@ function WordcardSlider() {
   const [index, setIndex] = useState(0);
   const [learnedCount, setCount] = useState(0);
   const [learned, setState] = useState(new Set());
+  const [flipped, setSide] = useState(false);
 
   const buttonEl = useRef(null);
 
   const onButtonClick = () => {
     buttonEl.current.focus();
-    console.log(1);
   };
 
   // изменить число выученных слов
@@ -23,6 +23,13 @@ function WordcardSlider() {
   // добавить index слова в set выученных
   const updateLearned = () => {
     setState(new Set([...learned, index]));
+  };
+
+  // переворачивать карточку
+  const onCardToggle = () => {
+    setSide(!flipped);
+    !flipped && updateCount();
+    updateLearned();
   };
 
   const nextSlide = () => {
@@ -47,9 +54,9 @@ function WordcardSlider() {
             <div className={styles.slider}>
               {wordsData.map((word, i) => (
                 <Card
-                  callbackFromParentCountUpdate={updateCount}
-                  callbackFromParentLearnedUpdate={updateLearned}
-                  callbackFromParentButtonRef={onButtonClick}
+                  flipped={flipped}
+                  callbackOnCardToggle={onCardToggle}
+                  callbackOnButtonClick={onButtonClick}
                   index={index}
                   order={i}
                   key={word.id}

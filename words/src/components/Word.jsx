@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./assets/Word.module.css";
+import Input from "./Input";
 
 function Word(props) {
   const defValues = {
@@ -10,6 +11,15 @@ function Word(props) {
 
   const [isEdit, editWord] = useState(false);
   const [values, setValues] = useState(defValues);
+  const [error, addError] = useState(false);
+
+  const validate = (e) => {
+    const value = e.target.value;
+
+    if (value === "") addError(!error);
+
+    return error;
+  };
 
   const setEdit = () => {
     editWord(!isEdit);
@@ -17,11 +27,9 @@ function Word(props) {
 
   const changeValues = (e) => {
     const { name, value } = e.target;
-    setValues((previousState) => {
-      return {
-        ...previousState,
-        [name]: value,
-      };
+    setValues({
+      ...values,
+      [name]: value,
     });
   };
 
@@ -30,28 +38,26 @@ function Word(props) {
       {(isEdit && (
         <tr className={styles.tableRow}>
           <td>
-            <input
+            <Input
               name="russian"
               value={values.russian}
-              className={styles.input}
               onChange={changeValues}
-            ></input>
+              onValidate={validate}
+            />
           </td>
           <td>
-            <input
+            <Input
               name="english"
               value={values.english}
-              className={styles.input}
               onChange={changeValues}
-            ></input>
+            />
           </td>
           <td>
-            <input
+            <Input
               name="transcription"
               value={values.transcription}
-              className={styles.input}
               onChange={changeValues}
-            ></input>
+            />
           </td>
 
           <td className={styles.editor}>
