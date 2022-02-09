@@ -5,6 +5,18 @@ import classNames from "classnames/bind";
 let cx = classNames.bind(styles);
 
 function Input(props) {
+  const [error, setError] = useState(false);
+
+  const validate = (e) => {
+    if (!e.target.value) setError(true);
+    if (e.target.value) setError(false);
+  };
+
+  const onInputChange = (e) => {
+    validate(e);
+    props.changeValues(e);
+  };
+
   let inputStyle = cx("input", {
     error: error,
   });
@@ -13,10 +25,7 @@ function Input(props) {
     <input
       value={props.value}
       name={props.name}
-      onChange={() => {
-        props.onChange();
-        props.validate();
-      }}
+      onChange={onInputChange}
       className={inputStyle}
     ></input>
   );

@@ -11,21 +11,13 @@ function Word(props) {
 
   const [isEdit, editWord] = useState(false);
   const [values, setValues] = useState(defValues);
-  const [error, addError] = useState(false);
-
-  const validate = (e) => {
-    const value = e.target.value;
-
-    if (value === "") addError(!error);
-
-    return error;
-  };
 
   const setEdit = () => {
     editWord(!isEdit);
   };
 
   const changeValues = (e) => {
+    console.log(e);
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -41,22 +33,21 @@ function Word(props) {
             <Input
               name="russian"
               value={values.russian}
-              onChange={changeValues}
-              onValidate={validate}
+              changeValues={changeValues}
             />
           </td>
           <td>
             <Input
               name="english"
               value={values.english}
-              onChange={changeValues}
+              changeValues={changeValues}
             />
           </td>
           <td>
             <Input
               name="transcription"
               value={values.transcription}
-              onChange={changeValues}
+              changeValues={changeValues}
             />
           </td>
 

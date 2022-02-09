@@ -7,6 +7,10 @@
   width: 130px;
 }
 
+.input:focus-visible {
+  outline: none;
+}
+
 .error {
   box-sizing: border-box;
   padding: 10px;
