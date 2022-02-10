@@ -10,6 +10,8 @@ function Input(props) {
   const validate = (e) => {
     if (!e.target.value) setError(true);
     if (e.target.value) setError(false);
+    if (error) props.saveOff();
+    console.log("error", error);
   };
 
   const onInputChange = (e) => {
@@ -20,6 +22,11 @@ function Input(props) {
   let inputStyle = cx("input", {
     error: error,
   });
+
+  useEffect(() => {
+    console.log(1);
+    //props.saveOff();
+  }, [error]);
 
   return (
     <input

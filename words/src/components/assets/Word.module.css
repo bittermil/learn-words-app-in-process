@@ -5,6 +5,7 @@
 }
 
 .save {
+  border: none;
   background: url("./images/tick.png") no-repeat;
   background-size: contain;
   width: 22px;

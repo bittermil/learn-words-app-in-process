@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./assets/Word.module.css";
 import Input from "./Input";
 
@@ -11,18 +11,23 @@ function Word(props) {
 
   const [isEdit, editWord] = useState(false);
   const [values, setValues] = useState(defValues);
+  const [disable, setSaveOff] = useState(false);
 
   const setEdit = () => {
     editWord(!isEdit);
   };
 
   const changeValues = (e) => {
-    console.log(e);
     const { name, value } = e.target;
     setValues({
       ...values,
       [name]: value,
     });
+  };
+
+  const disableSaveButton = () => {
+    setSaveOff(!disable);
+    console.log("disabled", disable);
   };
 
   return (
@@ -34,6 +39,7 @@ function Word(props) {
               name="russian"
               value={values.russian}
               changeValues={changeValues}
+              saveOff={disableSaveButton}
             />
           </td>
           <td>
@@ -41,6 +47,7 @@ function Word(props) {
               name="english"
               value={values.english}
               changeValues={changeValues}
+              saveOff={disableSaveButton}
             />
           </td>
           <td>
@@ -48,12 +55,17 @@ function Word(props) {
               name="transcription"
               value={values.transcription}
               changeValues={changeValues}
+              saveOff={disableSaveButton}
             />
           </td>
 
           <td className={styles.editor}>
-            <div onClick={setEdit} className={styles.save}></div>
-            <div onClick={setEdit} className={styles.cancel}></div>
+            <button
+              onClick={setEdit}
+              className={styles.save}
+              disabled={disable}
+            ></button>
+            <div className={styles.cancel}></div>
           </td>
         </tr>
       )) || (
