@@ -7,26 +7,28 @@ let cx = classNames.bind(styles);
 function Input(props) {
   const [error, setError] = useState(false);
 
-  const validate = (e) => {
-    if (!e.target.value) setError(true);
-    if (e.target.value) setError(false);
-    if (error) props.saveOff();
-    console.log("error", error);
-  };
+  // валидация формы
+  function inputValidate(inputValue) {
+    if (props.onValidate && !props.onValidate(inputValue)) {
+      setError(true);
+      props.addErrors();
+    } else {
+      setError(false);
+      props.deleteErrors();
+    }
+  }
 
+  // изменить значения инпута, валидация формы, отключение кнопки Сохранить
   const onInputChange = (e) => {
-    validate(e);
+    inputValidate(e.target.value);
     props.changeValues(e);
+    props.checkErrors();
   };
 
+  // добавить рамку у инпута при ошибке
   let inputStyle = cx("input", {
     error: error,
   });
-
-  useEffect(() => {
-    console.log(1);
-    //props.saveOff();
-  }, [error]);
 
   return (
     <input

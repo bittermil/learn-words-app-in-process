@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Word from "./Word";
 import styles from "./assets/Wordlist.module.css";
 import { wordsData } from "./words";
 
 function Wordlist() {
+  const [errorText, setErrorText] = useState("");
+
+  function handleErrorText(text) {
+    setErrorText(text);
+  }
+
   return (
     <>
       <h1>Your words</h1>
@@ -18,10 +24,15 @@ function Wordlist() {
         </thead>
         <tbody>
           {wordsData.map((word) => (
-            <Word key={word.id} {...word}></Word>
+            <Word
+              handleErrorTextCallBack={handleErrorText}
+              key={word.id}
+              {...word}
+            ></Word>
           ))}
         </tbody>
       </table>
+      <div className={styles.errorText}>{errorText}</div>
     </>
   );
 }
