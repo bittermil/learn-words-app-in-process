@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import Card from "./Wordcard";
 import styles from "./assets/WordcardSlider.module.css";
-import { wordsData } from "./words";
+import { useWordAPI } from "./contexts/WordsContextProvider";
 
 function WordcardSlider() {
+  const words = useWordAPI();
   const [index, setIndex] = useState(0);
   const [learnedCount, setCount] = useState(0);
   const [learned, setState] = useState(new Set());
@@ -34,17 +35,17 @@ function WordcardSlider() {
 
   const nextSlide = () => {
     setIndex(index + 1);
-    if (index === wordsData.length - 1) setIndex(0);
+    if (index === words.length - 1) setIndex(0);
   };
 
   const prevSlide = () => {
     if (index > 0) setIndex(index - 1);
-    if (index === 0) setIndex(wordsData.length - 1);
+    if (index === 0) setIndex(words.length - 1);
   };
 
   return (
     <>
-      {(wordsData.length && (
+      {(!isLoading && (
         <>
           <div className={styles.title}>
             Swipe cards to practice, click a card to see a translation
@@ -52,7 +53,7 @@ function WordcardSlider() {
           <div className={styles.gallery}>
             <button onClick={prevSlide} className={styles.arrowLeft}></button>
             <div className={styles.slider}>
-              {wordsData.map((word, i) => (
+              {words.map((word, i) => (
                 <Card
                   flipped={flipped}
                   callbackOnCardToggle={onCardToggle}
@@ -71,7 +72,7 @@ function WordcardSlider() {
             ></button>
           </div>
           <div className={styles.slideCount}>
-            {index + 1} / {wordsData.length}
+            {index + 1} / {words.length}
           </div>
 
           <div className={styles.learnedCount}>

@@ -7,23 +7,26 @@ import Home from "./components/Home";
 import Wordlist from "./components/Wordlist";
 import WordcardSlider from "./components/WordcardSlider";
 import NoMatch from "./components/NoMatch";
+import { WordsContextProvider } from "./components/contexts/WordsContextProvider";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-          <div className="content">
-            <Routes>
-              <Route path="/words" element={<Wordlist />} />
-              <Route path="/practice" element={<WordcardSlider />} />
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </div>
-        <Footer/>
-      </div>
-    </Router>
+    <WordsContextProvider>
+      <Router>
+        <div className="App">
+          <Header/>
+            <div className="content">
+              <Routes>
+                <Route path="/words" element={<Wordlist />} />
+                <Route path="/practice" element={<WordcardSlider />} />
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
+            </div>
+          <Footer/>
+        </div>
+      </Router>
+    </WordsContextProvider>
   );
 }
 

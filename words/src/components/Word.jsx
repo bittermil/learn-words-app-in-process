@@ -40,8 +40,6 @@ function Word(props) {
     if (errorsSum > 0) {
       setButtonStatus("disabled");
     } else setButtonStatus("");
-
-    console.log(errorsSum);
   }
 
   // перейти в режим редактирования
@@ -81,7 +79,7 @@ function Word(props) {
   }
 
   useEffect(() => {
-    console.log(savedData);
+    // console.log(savedData);
   }, [savedData]);
 
   return (

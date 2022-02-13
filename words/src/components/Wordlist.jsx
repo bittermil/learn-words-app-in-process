@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Word from "./Word";
 import styles from "./assets/Wordlist.module.css";
-import { wordsData } from "./words";
+import { useWordAPI } from "./contexts/WordsContextProvider";
 
 function Wordlist() {
   const [errorText, setErrorText] = useState("");
+  const words = useWordAPI();
 
   function handleErrorText(text) {
     setErrorText(text);
@@ -23,7 +24,7 @@ function Wordlist() {
           </tr>
         </thead>
         <tbody>
-          {wordsData.map((word) => (
+          {words.map((word) => (
             <Word
               handleErrorTextCallBack={handleErrorText}
               key={word.id}
