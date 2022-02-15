@@ -4,7 +4,7 @@ import styles from "./assets/WordcardSlider.module.css";
 import { useWordAPI } from "./contexts/WordsContextProvider";
 
 function WordcardSlider() {
-  const words = useWordAPI();
+  const { words, isLoading } = useWordAPI();
   const [index, setIndex] = useState(0);
   const [learnedCount, setCount] = useState(0);
   const [learned, setState] = useState(new Set());

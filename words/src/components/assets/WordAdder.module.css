@@ -1,7 +1,7 @@
 @import "./variables.css";
 
 h1 {
-  margin: 85px 0 15px;
+  margin: 45px 0 15px;
   font-size: 36px;
   text-align: center;
   color: var(--headers_dark_color);

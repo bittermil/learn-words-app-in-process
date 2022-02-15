@@ -5,7 +5,7 @@ import { useWordAPI } from "./contexts/WordsContextProvider";
 
 function Wordlist() {
   const [errorText, setErrorText] = useState("");
-  const words = useWordAPI();
+  const { words, isLoading } = useWordAPI();
 
   function handleErrorText(text) {
     setErrorText(text);
