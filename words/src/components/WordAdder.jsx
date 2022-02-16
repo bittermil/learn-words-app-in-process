@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./assets/Wordlist.module.css";
 import { useWordAPI } from "./contexts/WordsContextProvider";
 import { cyrillicRegex, latinRegex } from "./regex.js";
@@ -11,6 +11,7 @@ function WordAdder(props) {
   };
   const [values, setValues] = useState(defValues);
   const [formData, getFormData] = useState([]);
+  const { addWords } = useWordAPI();
 
   const changeValues = (e) => {
     const { name, value } = e.target;
@@ -18,8 +19,7 @@ function WordAdder(props) {
       ...values,
       [name]: value,
     });
-
-    console.log(values);
+    getFormData(values);
   };
 
   // function onValidate(inputValue) {
@@ -34,30 +34,17 @@ function WordAdder(props) {
   //   return true;
   // }
 
-  // добавление слова
-  async function addWords(e) {
+  const submitForm = (e) => {
     e.preventDefault();
-
-    let response = await fetch("/api/words/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        russian: values.russian,
-        english: values.english,
-        transcription: values.transcription,
-      }),
-    });
-
-    let result = await response.json();
-    console.log(result);
+    addWords(formData);
   }
+
+  console.log(formData);
 
   return (
     <>
       <h1>Add words you wish to learn</h1>
-      <form onSubmit={addWords}>
+      <form onSubmit={submitForm}>
         <input
           placeholder="English word"
           name="english"

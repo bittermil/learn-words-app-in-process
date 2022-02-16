@@ -9,7 +9,6 @@ const WordsContext = createContext();
 export function WordsContextProvider({ children }) {
     const [words, getWords] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    const [formData, getFormData] = useState(true);
 
     useEffect(() => {
         getWordList();
@@ -29,13 +28,21 @@ export function WordsContextProvider({ children }) {
     };
 
     // добавление слова
-    async function addWords(e){
-        let form = e.target;
-        console.log(form);
+    async function addWords(formData) {
+        let response = await fetch("/api/words/add", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({formData}),
+        });
+
+        let result = await response.json();
+        console.log(result);
     }
 
     return (
-        <WordsContext.Provider value={{ words, isLoading}} > 
+        <WordsContext.Provider value={{ words, isLoading, addWords}} > 
             {children} 
         </WordsContext.Provider>
     );
